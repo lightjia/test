@@ -36,7 +36,7 @@ set(lib_link ${lib_link} "${lib_dir}/svrbase/lib/linux/libsvrbase.a")
 set(lib_link ${lib_link} "pthread" "uuid" "crypto" "ssl")
 set(lib_link_flag "")
 set(CMAKE_C_FLAGS "-ggdb")
-set(CMAKE_CXX_FLAGS "-O0 -std=c++0x")
+set(CMAKE_CXX_FLAGS "-O0 -std=c++0x -ggdb")
 
 set(EXECUTABLE_OUTPUT_PATH "${home_dir}/bin")
 message(STATUS "source_files:${source_files}")
