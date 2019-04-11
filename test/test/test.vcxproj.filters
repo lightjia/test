@@ -22,6 +22,42 @@
     <Filter Include="file\src">
       <UniqueIdentifier>{5df508c1-7e83-43a3-8b5b-547c3cb1eb80}</UniqueIdentifier>
     </Filter>
+    <Filter Include="mem">
+      <UniqueIdentifier>{93201cdd-c14e-43fb-a436-fd8bf17b25e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="mem\include">
+      <UniqueIdentifier>{3eb1f0c3-2885-4bc2-9ab0-4b7bdf380d59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="mem\src">
+      <UniqueIdentifier>{d4f66c1e-2990-492f-84d5-382f2b718d51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="net">
+      <UniqueIdentifier>{80650bae-bcc2-4bdd-bb0f-b2935982f053}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="net\include">
+      <UniqueIdentifier>{0f16a7ca-1132-40e7-9833-e8c0d0085dae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="net\src">
+      <UniqueIdentifier>{aea31980-6e4f-4420-a658-2d3610b84698}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thread">
+      <UniqueIdentifier>{d1825b07-0ff1-4873-8394-9872b3f5834d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thread\include">
+      <UniqueIdentifier>{456b4a16-2522-4ef1-8673-da4ed7c14d7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thread\src">
+      <UniqueIdentifier>{e7dae37a-9d44-4474-ba80-032d6667874e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="util">
+      <UniqueIdentifier>{ccf91375-8c22-4f42-96c9-a0014190aaf3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="util\include">
+      <UniqueIdentifier>{2dc50f02-c371-44ef-a5da-5209bb90dfb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="util\src">
+      <UniqueIdentifier>{5e6af919-bef9-47d4-9ecc-beda0ef85246}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -36,6 +72,12 @@
     <ClInclude Include="file\include\UvDir.h">
       <Filter>file\include</Filter>
     </ClInclude>
+    <ClInclude Include="mem\include\MemTest.h">
+      <Filter>mem\include</Filter>
+    </ClInclude>
+    <ClInclude Include="mem\include\ClassMem.h">
+      <Filter>mem\include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -46,6 +88,12 @@
     </ClCompile>
     <ClCompile Include="file\src\UvDir.cpp">
       <Filter>file\src</Filter>
+    </ClCompile>
+    <ClCompile Include="mem\src\MemTest.cpp">
+      <Filter>mem\src</Filter>
+    </ClCompile>
+    <ClCompile Include="mem\src\ClassMem.cpp">
+      <Filter>mem\src</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

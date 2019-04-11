@@ -19,7 +19,7 @@ macro(add_src_subdirs source_files)
 	endforeach(_subdir)
 endmacro()
 
-add_src_subdirs(source_files "." "file")
+add_src_subdirs(source_files "." "file" "mem" "net" "thread" "util")
 
 include_directories(${lib_dir}/svrbase/base/include)
 include_directories(${lib_dir}/svrbase/cfg/include)
