@@ -78,6 +78,15 @@
     <ClInclude Include="mem\include\ClassMem.h">
       <Filter>mem\include</Filter>
     </ClInclude>
+    <ClInclude Include="net\include\TestSvr.h">
+      <Filter>net\include</Filter>
+    </ClInclude>
+    <ClInclude Include="net\include\TestActCli.h">
+      <Filter>net\include</Filter>
+    </ClInclude>
+    <ClInclude Include="net\include\TestPasCli.h">
+      <Filter>net\include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -94,6 +103,15 @@
     </ClCompile>
     <ClCompile Include="mem\src\ClassMem.cpp">
       <Filter>mem\src</Filter>
+    </ClCompile>
+    <ClCompile Include="net\src\TestSvr.cpp">
+      <Filter>net\src</Filter>
+    </ClCompile>
+    <ClCompile Include="net\src\TestActCli.cpp">
+      <Filter>net\src</Filter>
+    </ClCompile>
+    <ClCompile Include="net\src\TestPasCli.cpp">
+      <Filter>net\src</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

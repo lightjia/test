@@ -53,7 +53,7 @@ const struct mem_oper_func MEMMGR_MEM_FUNC = {CMemMgr::MemMalloc, CMemMgr::MemFr
 
 class CClassMemMgr {
 public:
-	void * operator new(size_t size);
-	void operator delete(void * p);
+	static void * operator new(size_t size);
+	static void operator delete(void * p);
 };
 #endif

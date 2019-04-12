@@ -157,6 +157,9 @@
     <ClInclude Include="file\include\UvDir.h" />
     <ClInclude Include="mem\include\ClassMem.h" />
     <ClInclude Include="mem\include\MemTest.h" />
+    <ClInclude Include="net\include\TestActCli.h" />
+    <ClInclude Include="net\include\TestPasCli.h" />
+    <ClInclude Include="net\include\TestSvr.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -164,6 +167,9 @@
     <ClCompile Include="file\src\UvDir.cpp" />
     <ClCompile Include="mem\src\ClassMem.cpp" />
     <ClCompile Include="mem\src\MemTest.cpp" />
+    <ClCompile Include="net\src\TestActCli.cpp" />
+    <ClCompile Include="net\src\TestPasCli.cpp" />
+    <ClCompile Include="net\src\TestSvr.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="test.cpp" />
   </ItemGroup>
