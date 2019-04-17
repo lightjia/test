@@ -11,8 +11,11 @@ protected:
 	int OnClose();
 	int OnSend(int iStatus);
 	int OnInit();
+	void OnBaseTimer();
 
 private:
+	time_t miLastSend;
+	bool mbConn;
 	uv_tcp_t mstTcpCli;
 	uv_connect_t mstUvConn;
 };

@@ -16,13 +16,14 @@ void TestSvr(){
 	CTestSvr* pSvr = new CTestSvr();
 	pSvr->SetMemOperFunc(MEMMGR_MEM_FUNC);
 	pSvr->SetNetParam("192.168.2.101", 7878);
+	pSvr->Init();
 }
 
 void TestCli(int iNum) {
 	for (int i = 0; i < iNum; ++i) {
 		CTestActCli* pCli = new CTestActCli();
 		pCli->SetMemOperFunc(MEMMGR_MEM_FUNC);
-		pCli->Connect("192.168.2.101", 7878);
+		pCli->Init();
 	}
 }
 
@@ -34,15 +35,21 @@ int main(int argc, char* argv[]){
 	sUvTaskPool->Init();
 
 	int iCliNum = 1;
-	if (argc > 1) {
-		iCliNum = atoi(argv[1]);
+	bool bSvr = true;
+	if (argc > 2) {
+		bSvr = false;
+		iCliNum = atoi(argv[2]);
 		if (iCliNum <= 0) {
 			iCliNum = 1;
 		}
 	}
 
-	//TestSvr();
-	TestCli(iCliNum);
+	if (bSvr) {
+		TestSvr();
+	} else {
+		TestCli(iCliNum);
+	}
+	
 	uv_run(uv_default_loop(), UV_RUN_DEFAULT);
 	while (true) {
 		sleep_ms(sRandTool->RandInt(1000, 3000));

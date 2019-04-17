@@ -9,6 +9,7 @@ CTestSvr::~CTestSvr(){
 }
 
 int CTestSvr::OnAccept(uv_tcp_t* pUvTcp) {
+	LOG_INFO("Enter CTestSvr::OnAccept");
 	if (pUvTcp) {
 		CTestPasCli* pCli = new CTestPasCli();
 		pCli->SetUvLoop(GetUvLoop());
