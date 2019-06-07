@@ -16,17 +16,14 @@ void CTestActCli::OnBaseTimer(){
 		Connect("192.168.2.101", 7878);
 		mbConn = true;
 	}else {
-		/*if (miLastSend + 30 <= time(NULL)) {
-			size_t iBufLen = 1980 * 1020 * 3;
-			char* pBuf = (char*)MemMalloc(iBufLen);
-			for (size_t i = 0; i < iBufLen; ++i) {
-				pBuf[i] = 'a' + i % 26;
-			}
+		size_t iBufLen = 190;
+		char* pBuf = (char*)MemMalloc(iBufLen);
+		for (size_t i = 0; i < iBufLen; ++i) {
+			pBuf[i] = 'a' + i % 26;
+		}
 
-			Send(pBuf, iBufLen);
-			MemFree(pBuf);
-			miLastSend = time(NULL);
-		}*/
+		Send(pBuf, iBufLen);
+		MemFree(pBuf);
 	}
 }
 
@@ -41,14 +38,7 @@ int CTestActCli::OnRecv(ssize_t nRead, const uv_buf_t* pBuf) {
 
 int CTestActCli::OnConn(int iStatus) {
 	LOG_INFO("Conn REsult:%d", iStatus);
-	size_t iBufLen = 1980 * 1020 * 3;
-	char* pBuf = (char*)MemMalloc(iBufLen);
-	for (size_t i = 0; i < iBufLen; ++i) {
-		pBuf[i] = 'a' + i % 26;
-	}
 
-	Send(pBuf, iBufLen);
-	MemFree(pBuf);
 	return 0;
 }
 
@@ -58,17 +48,7 @@ int CTestActCli::OnClose() {
 }
 
 int CTestActCli::OnSend(int iStatus) {
-	LOG_INFO("CTestActCli::OnSend:%d", iStatus);
-	if (!iStatus) {
-		size_t iBufLen = 1980 * 1020 * 3;
-		char* pBuf = (char*)MemMalloc(iBufLen);
-		for (size_t i = 0; i < iBufLen; ++i) {
-			pBuf[i] = 'a' + i % 26;
-		}
-
-		Send(pBuf, iBufLen);
-		MemFree(pBuf);
-	}
+	LOG_INFO("CTestActCli %s %d Send:%ld NeedSend:%ld Recv:%ld", GetNetId().c_str(), GetTotalSendBytes(), GetNeedSendBytes(), GetTotalRecvBytes());
 	return 0;
 }
 

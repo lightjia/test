@@ -33,6 +33,7 @@ int CTestPasCli::OnClose() {
 }
 
 int CTestPasCli::OnSend(int iStatus) {
+	LOG_INFO("Send:%ld NeedSend:%ld Recv:%ld", GetTotalSendBytes(), GetNeedSendBytes(), GetTotalRecvBytes());
 	return 0;
 }
 
