@@ -53,5 +53,5 @@ int CTestActCli::OnSend(int iStatus) {
 }
 
 int CTestActCli::OnInit() {
-	return StartBaseTimer(1000, 1000);
+	return StartBaseTimer(10, 10);
 }

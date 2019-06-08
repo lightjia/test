@@ -35,7 +35,7 @@ int CTestSvr::UvCallBack(uv_loop_t* pLoop, void* pData) {
 }
 
 uv_tcp_t* CTestSvr::AllocTcpCli() {
-	LOG_INFO("Enter CTestSvr::AllocTcpCli");
+	LOG_INFO("Enter CTestSvr::AllocTcpCli:%s", GetNetId().c_str());
 	ASSERT_RET_VALUE(!mpCliTcp, mpCliTcp);
 	mpMyLoop->CallUv(this, (void*)&miStep);
 	while (!mpCliTcp) {
@@ -46,9 +46,9 @@ uv_tcp_t* CTestSvr::AllocTcpCli() {
 }
 
 int CTestSvr::OnAccept(uv_tcp_t* pUvTcp) {
-	LOG_INFO("Enter CTestSvr::OnAccept");
 	if (pUvTcp) {
 		mpPasCli = new CTestPasCli();
+		LOG_INFO("Enter CTestSvr::OnAccept:%s", mpPasCli->GetNetId().c_str());
 		mpMyLoop->CallUv(this, (void*)&miStep);
 		while (1 == miStep) {
 			sleep_ms(10);
