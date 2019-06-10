@@ -27,12 +27,27 @@ void TestCli(int iNum) {
 	}
 }
 
+void logfile(const std::string& strLog) {
+	printf("Current LogFile:%s\n", strLog.c_str());
+}
+
 int main(int argc, char* argv[]){
 	sMemMgr->SetAlign(100);
 	sMemMgr->SetAllocMinLimit(100);
-	sLog->Init(2, 5, ".");
+	tagLogInitParam stLogParam;
+	stLogParam.pLogFileChangeCb = logfile;
+	sLog->Init(stLogParam);
 	sLog->SetMemOperFunc(MEMMGR_MEM_FUNC);
 	sUvTaskPool->Init();
+	int iNumTmp = 1;
+	while (true) {
+		sleep_ms(sRandTool->RandInt(1000, 1200));
+		LOG_INFO("Hello Jia:%lld", sLog->GetTotalLogLen());
+		if ((iNumTmp++) % 99 == 0) {
+			iNumTmp = 1;
+			sLog->SetLogPath("E:/log");
+		}
+	}
 
 	int iCliNum = 1;
 	bool bSvr = true;
