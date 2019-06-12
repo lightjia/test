@@ -32,15 +32,21 @@ void logfile(const std::string& strLog) {
 }
 
 int main(int argc, char* argv[]){
-	sMemMgr->SetAlign(100);
-	sMemMgr->SetAllocMinLimit(100);
+	/*sMemMgr->SetAlign(100);
+	sMemMgr->SetAllocMinLimit(100);*/
 	tagLogInitParam stLogParam;
 	sLog->Init(stLogParam);
-	sLog->SetMemOperFunc(MEMMGR_MEM_FUNC);
+	//sLog->SetMemOperFunc(MEMMGR_MEM_FUNC);
 	sUvTaskPool->Init();
 	while (true) {
-		sleep_ms(sRandTool->RandInt(1000, 1200));
-		LOG_INFO("Hello Jia:%lld current path:%s cwd:%s", sLog->GetTotalLogLen(), sUvUtil->GetExePath().c_str(), sUvUtil->GetCwd().c_str());
+		sleep_ms(sRandTool->RandInt(100, 300));
+		unsigned long iLen = 1024 * 1024 * 1024;
+		char* pData = (char*)do_malloc(iLen * sizeof(char));
+		for (int i = 0; i < iLen - 1; ++i) {
+			pData[i] = 'a' + i % 26;
+		}
+		pData[iLen - 1] = '\0';
+		LOG_INFO("%s", pData);
 	}
 
 	int iCliNum = 1;
