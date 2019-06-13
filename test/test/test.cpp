@@ -40,7 +40,7 @@ int main(int argc, char* argv[]){
 	sUvTaskPool->Init();
 	while (true) {
 		sleep_ms(sRandTool->RandInt(100, 300));
-		unsigned long iLen = 1024 * 1024 * 1024;
+		unsigned long iLen = 1024 * 1024 * 3;
 		char* pData = (char*)do_malloc(iLen * sizeof(char));
 		for (int i = 0; i < iLen - 1; ++i) {
 			pData[i] = 'a' + i % 26;
