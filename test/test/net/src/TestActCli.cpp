@@ -29,8 +29,8 @@ void CTestActCli::OnBaseTimer(){
 
 int CTestActCli::OnRecv(ssize_t nRead, const uv_buf_t* pBuf) {
 	if (nRead > 0 && pBuf && pBuf->base) {
-		pBuf->base[nRead - 1] = '\0';
-		LOG_INFO("Cli:%d Recv:%s", GetPort(), pBuf->base);
+		pBuf->base[nRead] = '\0';
+		LOG_INFO("Cli:%d Recv:%s totalrecv:%ld", GetPort(), pBuf->base, (unsigned long)GetTotalRecvBytes());
 	}
 
 	return 0;
@@ -48,7 +48,7 @@ int CTestActCli::OnClose() {
 }
 
 int CTestActCli::OnSend(int iStatus) {
-	LOG_INFO("CTestActCli %s %d Send:%ld NeedSend:%ld Recv:%ld", GetNetId().c_str(), GetTotalSendBytes(), GetNeedSendBytes(), GetTotalRecvBytes());
+	LOG_INFO("CTestActCli %s Send:%ld NeedSend:%ld Recv:%ld", GetNetId().c_str(), GetTotalSendBytes(), GetNeedSendBytes(), GetTotalRecvBytes());
 	return 0;
 }
 

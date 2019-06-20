@@ -11,7 +11,7 @@
 #include "ClassMem.h"
 #include "TestActCli.h"
 #include "TestSvr.h"
-
+#include "MemBuffer.h"
 void TestSvr(){
 	CTestSvr* pSvr = new CTestSvr();
 	pSvr->SetMemOperFunc(MEMMGR_MEM_FUNC);
@@ -38,16 +38,6 @@ int main(int argc, char* argv[]){
 	sLog->Init(stLogParam);
 	//sLog->SetMemOperFunc(MEMMGR_MEM_FUNC);
 	sUvTaskPool->Init();
-	while (true) {
-		sleep_ms(sRandTool->RandInt(100, 300));
-		unsigned long iLen = 1024 * 1024 * 3;
-		char* pData = (char*)do_malloc(iLen * sizeof(char));
-		for (int i = 0; i < iLen - 1; ++i) {
-			pData[i] = 'a' + i % 26;
-		}
-		pData[iLen - 1] = '\0';
-		LOG_INFO("%s", pData);
-	}
 
 	int iCliNum = 1;
 	bool bSvr = true;
