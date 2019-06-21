@@ -38,6 +38,16 @@ int main(int argc, char* argv[]){
 	sLog->Init(stLogParam);
 	//sLog->SetMemOperFunc(MEMMGR_MEM_FUNC);
 	sUvTaskPool->Init();
+	char* pTmp = (char*)do_malloc(10003 * sizeof(char));
+	while (true) {
+		int iTmpLen = sRandTool->RandInt(100, 10000);
+		for (int i = 0; i < iTmpLen; ++i) {
+			pTmp[i] = 'a' + i % 26;
+		}
+		pTmp[iTmpLen] = '\0';
+		LOG_INFO("%s", pTmp);
+		sleep_ms(sRandTool->RandInt(100, 1000));
+	}
 
 	int iCliNum = 1;
 	bool bSvr = true;

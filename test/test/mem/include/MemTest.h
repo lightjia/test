@@ -2,6 +2,7 @@
 #include "Task.h"
 #include "MemOper.h"
 #include "RandTool.h"
+#include "Log.h"
 class CMemTest : public CTask, public CMemOper{
 public:
 	CMemTest(int iId);
