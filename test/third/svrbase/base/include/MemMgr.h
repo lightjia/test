@@ -12,6 +12,11 @@ struct tagMemMgrHead {
 	size_t iTotal;
 	size_t iUse;
 };
+
+struct tagMemMgrItem {
+	std::queue<void*>* pQueMemItems;
+	CMutex* pMutex;
+};
 #pragma pack()
 
 class CMemMgr : public CSingleton<CMemMgr>{
@@ -20,7 +25,11 @@ public:
 	~CMemMgr();
 
 public:
-	size_t GetTotalMem() { return miTotolMem; }
+	const uint64_t GetTotalMem() { return miTotolMem; }
+	const uint64_t GetTotalMalloc() { return miTotalMalloc; }
+	const uint64_t GetTotalFree() { return miTotalFree; }
+	const uint32_t GetMemItemsNum() { return miMemItemsNum; }
+	const uint32_t GetMapMemNums() { return miMapMemNums; }
 	void SetAlign(unsigned int iAlign);
 	void SetAllocMinLimit(unsigned int iMinLimit);
 
@@ -40,11 +49,14 @@ private:
 	int miCheckFlag;
 	unsigned int miAlign;
 	unsigned int miAllocMinLimit;
-	size_t miTotolMem;
-	std::vector<std::queue<void*>*> mvecMem;
-	std::vector<CUvMutex*> mvecMemItemLock;
-	CUvMutex* mpVecMemMutex;
-	CUvMutex* mpTotalMemMutex;
+	uint32_t miMemItemsNum;
+	uint32_t miMapMemNums;
+	uint64_t miTotolMem;
+	CMutex* mpTotalMemMutex;
+	std::map<uint32_t, tagMemMgrItem> mmapMemItems;
+	CMutex* mpMapMemMutex;
+	uint64_t miTotalMalloc;
+	uint64_t miTotalFree;
 };
 
 #define sMemMgr CMemMgr::Instance()

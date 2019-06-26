@@ -45,7 +45,7 @@ int main(int argc, char* argv[]){
 			pTmp[i] = 'a' + i % 26;
 		}
 		pTmp[iTmpLen] = '\0';
-		LOG_INFO("%s", pTmp);
+		LOG_INFO("%s MemItems:%d MemMapNum:%d TotalMem:%I64u TotalMalloc:%I64u  TotalFree:%I64u", pTmp, sMemMgr->GetMemItemsNum(), sMemMgr->GetMapMemNums(), sMemMgr->GetTotalMem(), sMemMgr->GetTotalMalloc(), sMemMgr->GetTotalFree());
 		sleep_ms(sRandTool->RandInt(100, 1000));
 	}
 
