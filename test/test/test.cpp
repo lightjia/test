@@ -38,15 +38,10 @@ int main(int argc, char* argv[]){
 	sLog->Init(stLogParam);
 	//sLog->SetMemOperFunc(MEMMGR_MEM_FUNC);
 	sUvTaskPool->Init();
-	char* pTmp = (char*)do_malloc(10003 * sizeof(char));
+	LOG_INFO("Cur Dir:%s", sUvUtil->GetCwd().c_str());
 	while (true) {
-		int iTmpLen = sRandTool->RandInt(100, 10000);
-		for (int i = 0; i < iTmpLen; ++i) {
-			pTmp[i] = 'a' + i % 26;
-		}
-		pTmp[iTmpLen] = '\0';
-		LOG_INFO("%s MemItems:%d MemMapNum:%d TotalMem:%I64u TotalMalloc:%I64u  TotalFree:%I64u", pTmp, sMemMgr->GetMemItemsNum(), sMemMgr->GetMapMemNums(), sMemMgr->GetTotalMem(), sMemMgr->GetTotalMalloc(), sMemMgr->GetTotalFree());
-		sleep_ms(sRandTool->RandInt(100, 1000));
+		LOG_INFO("MemItems:%d MemMapNum:%d TotalMem:%I64u TotalMalloc:%I64u  TotalFree:%I64u", sMemMgr->GetMemItemsNum(), sMemMgr->GetMapMemNums(), sMemMgr->GetTotalMem(), sMemMgr->GetTotalMalloc(), sMemMgr->GetTotalFree());
+		sleep_ms(sRandTool->RandInt(1000, 8000));
 	}
 
 	int iCliNum = 1;
