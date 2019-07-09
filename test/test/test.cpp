@@ -12,6 +12,8 @@
 #include "TestActCli.h"
 #include "TestSvr.h"
 #include "MemBuffer.h"
+#include "TestTasks.h"
+
 void TestSvr(){
 	CTestSvr* pSvr = new CTestSvr();
 	pSvr->SetMemOperFunc(MEMMGR_MEM_FUNC);
@@ -32,16 +34,19 @@ void logfile(const std::string& strLog) {
 }
 
 int main(int argc, char* argv[]){
-	/*sMemMgr->SetAlign(100);
-	sMemMgr->SetAllocMinLimit(100);*/
+	sMemMgr->SetAllocMinLimit(0);
 	tagLogInitParam stLogParam;
 	sLog->Init(stLogParam);
 	//sLog->SetMemOperFunc(MEMMGR_MEM_FUNC);
 	sUvTaskPool->Init();
+	for (int i = 0; i < 500; ++i) {
+		CTestTasks* pTask = new CTestTasks();
+		sUvTaskPool->PushTask(pTask);
+	}
 	LOG_INFO("Cur Dir:%s", sUvUtil->GetCwd().c_str());
 	while (true) {
 		LOG_INFO("MemItems:%d MemMapNum:%d TotalMem:%I64u TotalMalloc:%I64u  TotalFree:%I64u", sMemMgr->GetMemItemsNum(), sMemMgr->GetMapMemNums(), sMemMgr->GetTotalMem(), sMemMgr->GetTotalMalloc(), sMemMgr->GetTotalFree());
-		sleep_ms(sRandTool->RandInt(1000, 8000));
+		sleep_ms(sRandTool->RandInt(5000, 8000));
 	}
 
 	int iCliNum = 1;

@@ -162,6 +162,7 @@
     <ClInclude Include="net\include\TestSvr.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="thread\include\TestTasks.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="file\src\UvDir.cpp" />
@@ -172,6 +173,7 @@
     <ClCompile Include="net\src\TestSvr.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="test.cpp" />
+    <ClCompile Include="thread\src\TestTasks.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

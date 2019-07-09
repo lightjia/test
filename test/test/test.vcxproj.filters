@@ -87,6 +87,9 @@
     <ClInclude Include="net\include\TestPasCli.h">
       <Filter>net\include</Filter>
     </ClInclude>
+    <ClInclude Include="thread\include\TestTasks.h">
+      <Filter>thread\include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -112,6 +115,9 @@
     </ClCompile>
     <ClCompile Include="net\src\TestPasCli.cpp">
       <Filter>net\src</Filter>
+    </ClCompile>
+    <ClCompile Include="thread\src\TestTasks.cpp">
+      <Filter>thread\src</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
